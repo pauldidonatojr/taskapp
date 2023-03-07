@@ -170,7 +170,7 @@ const TaskList = styled.ul`
  }
 `
 const Hero = () => {
- const [isOverlayOpen, setIsOverlayOpen] = useState(true)
+ const [isOverlayOpen, setIsOverlayOpen] = useState(false)
 
  const [tasks, setTasks] = useState([])
  const [client, setClient] = useState('')
@@ -215,41 +215,43 @@ const Hero = () => {
       <OverlayContent>
        <OverlayHeader>Overlay Header</OverlayHeader>
 
-        <h2>Tasks</h2>
-   <uTaskList>
-    {tasks.map((task, index) => (
-     <li key={index}>
-      <div>
-       <strong>Client:</strong> {task.client}
-      </div>
-      <div>
-       <strong>Issue:</strong> {task.issue}
-      </div>
-      <div>
-       <strong>Service Type:</strong> {task.serviceType}
-      </div>
-      <div>
-       <strong>Date/Time:</strong> {task.dateTime}
-      </div>
-      <div>
-       <strong>Comments:</strong> {task.comments}
-      </div>
-      <div>
-       <strong>Attachments:</strong> {task.attachments.length}
-      </div>
-      <div>
-       <strong>Progress:</strong> {task.progress}
-      </div>
-      <div>
-       <strong>Status:</strong> {task.status}
-      </div>
-      <AddTaskButton onClick={() => handleEditTask(index)}>Edit</AddTaskButton>
-      <AddTaskButton onClick={() => handleDeleteTask(index)}>
-       Delete
-      </AddTaskButton>
-     </li>
-    ))}
-   </uTaskList>
+       <h2>Tasks</h2>
+       <uTaskList>
+        {tasks.map((task, index) => (
+         <li key={index}>
+          <div>
+           <strong>Client:</strong> {task.client}
+          </div>
+          <div>
+           <strong>Issue:</strong> {task.issue}
+          </div>
+          <div>
+           <strong>Service Type:</strong> {task.serviceType}
+          </div>
+          <div>
+           <strong>Date/Time:</strong> {task.dateTime}
+          </div>
+          <div>
+           <strong>Comments:</strong> {task.comments}
+          </div>
+          <div>
+           <strong>Attachments:</strong> {task.attachments.length}
+          </div>
+          <div>
+           <strong>Progress:</strong> {task.progress}
+          </div>
+          <div>
+           <strong>Status:</strong> {task.status}
+          </div>
+          <AddTaskButton onClick={() => handleEditTask(index)}>
+           Edit
+          </AddTaskButton>
+          <AddTaskButton onClick={() => handleDeleteTask(index)}>
+           Delete
+          </AddTaskButton>
+         </li>
+        ))}
+       </uTaskList>
        <OverlayButton onClick={handleCloseClick}>Close</OverlayButton>
       </OverlayContent>
      </Overlay>
